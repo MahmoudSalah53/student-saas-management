@@ -72,43 +72,43 @@ If your React Starter Kit is placed in a separate frontend folder, run cd fronte
 
 ```
 
-How multi-tenancy works (short)
-Shared database: all tenants live in the same DB. Tenant-scoped tables include a tenant_id column.
+## How multi-tenancy works (short)
+- Shared database: all tenants live in the same DB. Tenant-scoped tables include a tenant_id column.
 
-A TenantMiddleware sets the current tenant context (from domain, subdomain, path, or header).
+- A TenantMiddleware sets the current tenant context (from domain, subdomain, path, or header).
 
-Models use an Eloquent global scope (or manual whereTenant() usage) to restrict queries to the current tenant.
+- Models use an Eloquent global scope (or manual whereTenant() usage) to restrict queries to the current tenant.
 
-Customize tenant resolution in app/Http/Middleware/TenantMiddleware.php (or the service you used in the starter kit).
+- Customize tenant resolution in app/Http/Middleware/TenantMiddleware.php (or the service you used in the starter kit).
 
-Common commands
-composer install — install PHP dependencies
+## Common commands
+- composer install — install PHP dependencies
 
-npm install — install JS dependencies
+- npm install — install JS dependencies
 
-npm run dev — start Vite/Mix dev build (watch)
+- npm run dev — start Vite/Mix dev build (watch)
 
-php artisan migrate --seed — migrate DB + seed sample data
+- php artisan migrate --seed — migrate DB + seed sample data
 
-php artisan storage:link — create storage symlink
+- php artisan storage:link — create storage symlink
 
-php artisan tinker — debug / create tenants or users manually
+- php artisan tinker — debug / create tenants or users manually
 
-Checklist before pushing to GitHub
-Add .env.example (do not push .env)
+## Checklist before pushing to GitHub
+- Add .env.example (do not push .env)
 
-Ensure migrations + seeders exist for reproducible setup
+- Ensure migrations + seeders exist for reproducible setup
 
-Add README.md (this file), LICENSE, and .gitignore
+- Add README.md (this file), LICENSE, and .gitignore
 
-Remove any hard-coded secrets or credentials
+- Remove any hard-coded secrets or credentials
 
-Include short contributor notes if others will onboard
+- Include short contributor notes if others will onboard
 
-Troubleshooting
-If assets don't load: check npm run dev is running and APP_URL matches your dev host.
+## Troubleshooting
+- If assets don't load: check npm run dev is running and APP_URL matches your dev host.
 
-If tenants not resolving: verify TenantMiddleware logic and your local hosts/webserver config (subdomain tenancy requires host entries).
+- If tenants not resolving: verify TenantMiddleware logic and your local hosts/webserver config (subdomain tenancy requires host entries).
 
-Check Node & PHP versions if install/build fails.
+- Check Node & PHP versions if install/build fails.
 
